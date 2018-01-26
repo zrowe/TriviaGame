@@ -1,0 +1,44 @@
+html {
+
+    height: 100%;
+    background: url(../images/background.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+
+body {
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0px 0px;
+}
+
+h2 {
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+.container {
+    position: relative;
+    padding: 20px;
+}
+
+.hero {
+ /*   border: 1px solid; */
+}
+
+.title {
+    float: right;
+    width:30%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
