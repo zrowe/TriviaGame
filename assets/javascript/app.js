@@ -39,6 +39,8 @@ var questions = [Q1, Q2, Q3, Q4];
 
 
 function startRound() {
+    $("#go-again").addClass("hide");
+    $("#start-game").addClass("hide");
     qindex = 0; // set the start of game
     currentQuestion = questions[qindex];
     startQuestion(currentQuestion);
@@ -135,10 +137,6 @@ function displayUnanswered(currentQuestion) {
     $("#answer").removeClass("hide");
     setTimeout(nextQuestion, showAnswerTime * 1000);
 };
-// paint title anc container7k
-// paint start a game?
-// when pressed, run a game until no more games.
-// run a game until no more games.
 
 function showStats() {
     // reveal the go again button
@@ -150,7 +148,12 @@ function showStats() {
 };
 
 
-//  then start another question.
+// Starts here: 3 buttons control the game:
+
+//  start-game = the opening start button
+//  choices    = the answerpicking buttons
+//. go-again.  = a restart button at the end of the game.
+//
 $(document).on("click", "#start-game", startRound);
 $(document).on("click", ".choices", checkAnswer);
 $(document).on("click", "#go-again", startRound);
