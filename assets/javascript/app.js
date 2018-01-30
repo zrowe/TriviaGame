@@ -2,7 +2,7 @@
 
 // housekeeping
 
-var debug = true;
+var debug = false;
 
 var maxWaitSecs = 30; // how log to wait for an answer
 var maxShowSecs = 5; // How long to show the answer
@@ -40,6 +40,10 @@ var questions = [Q1, Q2, Q3, Q4];
 
 function startRound() {
     if (debug) { console.log("function startRound") };
+
+
+
+
     $("#go-again").addClass("hide");
     $("#start-game").addClass("hide");
     qindex = 0; // set the start of game
@@ -158,12 +162,26 @@ function showStats() {
 };
 
 
+// Here we go
+$(document).ready();
+
+
+// hide all the details until user starts the game
+$("#time-remaining").addClass("hide");
+$("#question").addClass("hide");
+$("#scoreboard").addClass("hide");
+$("#outcome").addClass("hide");
+$("#answer").addClass("hide");
+$(".choice-block").addClass("hide");
+$("#go-again").addClass("hide");
+
 // Starts here: 3 buttons control the game:
 
 //  start-game = the opening start button
 //  choices    = the answerpicking buttons
 //. go-again.  = a restart button at the end of the game.
 //
+
 $(document).on("click", "#start-game", startRound);
 $(document).on("click", ".choices", checkAnswer);
 $(document).on("click", "#go-again", startRound);
