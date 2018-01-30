@@ -74,7 +74,7 @@ function checkAnswer() {
     }
 }
 
-// reveal a question
+
 function startQuestion(currentQuestion) {
     if (debug) { console.log("function startQuestion") };
     displayQuestion(currentQuestion);
@@ -94,12 +94,13 @@ function countdown_trigger() {
     }
 }
 
+// reveal a question
 function displayQuestion(currentQuestion) {
     if (debug) { console.log("function displayQuestion") };
     $("#scoreboard").addClass("hide");
     $("#outcome").addClass("hide");
     $("#answer").addClass("hide");
-    $(".choices").removeClass("hide");
+    $(".choice-block").removeClass("hide");
     $("#question").text(currentQuestion.question);
     $("#choice-1").text(currentQuestion.choice1);
     $("#choice-1").val(currentQuestion.choice1);
@@ -113,7 +114,7 @@ function displayQuestion(currentQuestion) {
 
 function displayCorrect(currentQuestion) {
     if (debug) { console.log("function displayCorrect") };
-    $(".choices").addClass("hide"); //hide questions     
+    $("choice-block").addClass("hide"); //hide questions     
     $("#outcome").text("Correct!");
     $("#outcome").removeClass("hide");
     setTimeout(nextQuestion, showAnswerTime * 1000);
@@ -121,7 +122,7 @@ function displayCorrect(currentQuestion) {
 
 function displayIncorrect(currentQuestion) {
     if (debug) { console.log("function displayIncorrect") };
-    $(".choices").addClass("hide");
+    $(".choice-block").addClass("hide");
     $("#outcome").text("Nope!")
     $("#outcome").removeClass("hide");
     $("#answer-text").text(currentQuestion.rightChoice);
@@ -131,7 +132,7 @@ function displayIncorrect(currentQuestion) {
 
 function displayUnanswered(currentQuestion) {
     if (debug) { console.log("function displayUnanswered") };
-    $(".choices").addClass("hide");
+    $(".choice-block").addClass("hide");
     $("#outcome").text("Out of Time!");
     $("#outcome").removeClass("hide");
     $("#answer-text").text(currentQuestion.rightChoice);

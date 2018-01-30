@@ -35,8 +35,8 @@ main {
     padding: 20px;
 }
 
-.hero {
- /*   border: 1px solid; */
+.debug {
+    border: 1px solid; 
 }
 
 .title {
