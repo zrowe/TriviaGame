@@ -97,6 +97,8 @@ function countdown_trigger() {
 // reveal a question
 function displayQuestion(currentQuestion) {
     if (debug) { console.log("function displayQuestion") };
+    $("#time-remaining").removeClass("hide");
+    $("#question").removeClass("hide");
     $("#scoreboard").addClass("hide");
     $("#outcome").addClass("hide");
     $("#answer").addClass("hide");
@@ -114,7 +116,7 @@ function displayQuestion(currentQuestion) {
 
 function displayCorrect(currentQuestion) {
     if (debug) { console.log("function displayCorrect") };
-    $("choice-block").addClass("hide"); //hide questions     
+    $(".choice-block").addClass("hide"); //hide questions     
     $("#outcome").text("Correct!");
     $("#outcome").removeClass("hide");
     setTimeout(nextQuestion, showAnswerTime * 1000);
@@ -143,6 +145,11 @@ function displayUnanswered(currentQuestion) {
 // show stats and reveal play again? button
 function showStats() {
     if (debug) { console.log("function showstats") };
+    $("#time-remaining").addClass("hide");
+    $("#question").addClass("hide");
+    $("#outcome").addClass("hide");
+    $("#answer").addClass("hide");
+    $(".choice-block").addClass("hide");
     $("#num-correct").text(correctCount);
     $("#num-incorrect").text(incorrectCount);
     $("#num-unanswered").text(unansweredCount);
