@@ -1,0 +1,31 @@
+<script language="Javascript">
+
+var countdown;
+var countdown_number;
+
+function countdown_init() {
+    countdown_number = 11;
+    countdown_trigger();
+}
+
+function countdown_trigger() {
+    if(countdown_number > 0) {
+        countdown_number--;
+        document.getElementById('countdown_text').innerHTML = countdown_number;
+        if(countdown_number > 0) {
+            countdown = setTimeout('countdown_trigger()', 1000);
+        }
+    }
+}
+
+function countdown_clear() {
+    clearTimeout(countdown);
+}
+
+</script>
+
+<div>
+    <input type="button" value="start countdown" onclick="countdown_init()" />
+    <input type="button" value="stop countdown" onclick="countdown_clear()" />
+</div>
+<div id="countdown_text">Placeholding text</div>

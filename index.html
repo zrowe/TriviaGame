@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Totally Trivial Trivia</title>
+    <title>Trivia</title>
     <!-- Added link to the jQuery Library -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
@@ -12,6 +12,27 @@
 
 <body>
     <div class="container">
+        <main>
+            <div id="start-game">Start Game</div>
+            <div id="time-remaining">Time Remaining: <span id="secs">XX</span> Seconds</div>
+            <div id="question">question</div>
+            <div id="outcome">outcome</div>
+            <div id="answer">The correct answer was: <span id="answer-text"> </span></div>
+        
+            <button type=input id="choice-1" class="choices" value="answer 1">Answer Number 1</button>
+            <br>
+            <button type=input id="choice-2" class="choices" value="answer 2">Answer Number 2</button>
+            <br>
+            <button type=input id="choice-3" class="choices" value="answer 3">Answer Number 3</button>
+            <br>
+            <button type=input id="choice-4" class="choices" value="answer 4">Answer Number 4</button>
+            <div id="scoreboard">
+                <div id="correct">Correct Answers: <span id="num-correct">XX</span></div>
+                <div id="incorrect">Incorrect Answers: <span id="num-incorrect">XX</span></div>
+                <div id="unanswered">Unanswered: <span id="num-unanswered">XX</span></div>
+            </div>
+            <div id="go-again">start again?</div>
+        </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
     <script type="text/javascript " src="assets/javascript/app.js "></script>

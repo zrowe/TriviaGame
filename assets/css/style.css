@@ -6,7 +6,9 @@ html {
 }
 
 body {
-    color: white;
+    color: black;
+    font-size: 30px;
+
 }
 
 * {
@@ -23,6 +25,11 @@ h2 {
     margin: 20px 0px;
 }
 
+main {
+    max-width: 720px;
+    background-color: white;
+    margin:auto;
+}
 .container {
     position: relative;
     padding: 20px;
@@ -35,6 +42,10 @@ h2 {
 .title {
     float: right;
     width:30%;
+}
+
+.hide {
+    display:none;
 }
 
 .clearfix:after {
