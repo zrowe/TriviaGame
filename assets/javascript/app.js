@@ -29,13 +29,56 @@ function QuestionSet(question, choice1, choice2,
 };
 
 // load the question-answer sets
-var Q1 = new QuestionSet("What is red?", "Blue", "Green", "Yellow", "Red", "Red");
-var Q2 = new QuestionSet("Who is Paul?", "Billy", "Jim", "Paul", "Jack", "Paul");
-var Q3 = new QuestionSet("What is water?", "A liquid", "A solid", "A gas", "An herb", "A liquid");
-var Q4 = new QuestionSet("What is Trump?", "A great president", "An eloquent speaker", "A liberal", "A jerk", "A jerk");
+
+
+var Q1 = new QuestionSet(
+    "Who was the first man to walk on the moon?",
+    "Buzz Aldrin",
+    "Keith Richards",
+    "Neil Armstrong",
+    "John Glenn",
+    "Neil Armstrong"
+);
+
+var Q2 = new QuestionSet(
+    "Which flight mission conducted the first space walk?",
+    "Gemini 4",
+    "Murcury 7",
+    "Apollo 3",
+    "Gemini 11",
+    "Gemini 4"
+);
+
+var Q3 = new QuestionSet(
+    "Who was the first astronaut to walk in space?",
+    "James McDivitt",
+    "Buzz Aldrin",
+    "Ed White",
+    "Chris Kraft",
+    "Ed White"
+);
+
+var Q4 = new QuestionSet(
+    "Which flight mission was first to circle the moon?",
+    "Apollo 13",
+    "Gemini 7",
+    "Apollo 8",
+    "Apollo 1",
+    "Apollo 8"
+);
+
+var Q5 = new QuestionSet(
+    "When did John Glenn orbit the earth for the first time?",
+    "1961",
+    "1962",
+    "1963",
+    "1964",
+    "1962"
+);
+
 
 // gather all the Q&A together
-var questions = [Q1, Q2, Q3, Q4];
+var questions = [Q1, Q2, Q3, Q4, Q5];
 
 
 function startRound() {
