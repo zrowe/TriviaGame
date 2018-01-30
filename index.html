@@ -14,19 +14,26 @@
     <div class="container">
         <main>
             <div class="title">Totally Trivial Trivia</div>
-            <button type=input id="start-game" class="debug" value="start game">Start Game</button>
+            <div class="btn-wrapper">
+                <button type=input id="start-game" class="debug" value="start game">Start Game</button>
+            </div>
             <div id="time-remaining" class="debug">Time Remaining: <span id="secs">XX</span> Seconds</div>
             <div id="question" class="debug">question</div>
             <div id="outcome" class="debug">outcome</div>
             <div id="answer" class="debug">The correct answer was: <span id="answer-text"> </span></div>
             <div class="choice-block debug">
-                <button type=input id="choice-1" class="choice-block choices" value="answer 1">Answer Number 1</button>
-                <br>
-                <button type=input id="choice-2" class="choice-block choices" value="answer 2">Answer Number 2</button>
-                <br>
-                <button type=input id="choice-3" class="choice-block choices" value="answer 3">Answer Number 3</button>
-                <br>
-                <button type=input id="choice-4" class="choice-block choices" value="answer 4">Answer Number 4</button>
+                <div class="btn-wrapper">
+                    <button type=input id="choice-1" class="choice-block choices" value="answer 1">Answer Number 1</button>
+                </div>
+                <div class="btn-wrapper">
+                    <button type=input id="choice-2" class="choice-block choices" value="answer 2">Answer Number 2</button>
+                </div>
+                <div class="btn-wrapper">
+                    <button type=input id="choice-3" class="choice-block choices" value="answer 3">Answer Number 3</button>
+                </div>
+                <div class="btn-wrapper">
+                    <button type=input id="choice-4" class="choice-block choices" value="answer 4">Answer Number 4</button>
+                </div>
             </div>
             <div id="scoreboard" class="debug">
                 <p>Here's how you did:</p>
@@ -34,7 +41,9 @@
                 <div id="incorrect">Incorrect Answers: <span id="num-incorrect">XX</span></div>
                 <div id="unanswered">Unanswered: <span id="num-unanswered">XX</span></div>
             </div>
-            <button type=input id="go-again" class="debug" value="Start Over?">Start Over?</button>
+            <div class="btn-wrapper">
+                <button type=input id="go-again" class="debug" value="Start Over?">Start Over?</button>
+            </div>
         </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
