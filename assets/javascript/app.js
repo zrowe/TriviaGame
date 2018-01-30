@@ -39,6 +39,7 @@ var questions = [Q1, Q2, Q3, Q4];
 
 
 function startRound() {
+    if (debug) { console.log("function startRound") };
     $("#go-again").addClass("hide");
     $("#start-game").addClass("hide");
     qindex = 0; // set the start of game
@@ -47,6 +48,7 @@ function startRound() {
 }
 
 function nextQuestion() {
+    if (debug) { console.log("function nextQuestion") };
     if (qindex < questions.length - 1) {
         qindex++;
         currentQuestion = questions[qindex];
@@ -57,17 +59,16 @@ function nextQuestion() {
 }
 
 function checkAnswer() {
-    console.log(noAnswerTimer);
+    if (debug) { console.log("function checkAnswer") };
     clearInterval(noAnswerTimer);
-    console.log(noAnswerTimer);
     var usersChoice = this.value;
     if (debug) { console.log(usersChoice) };
     if (currentQuestion.rightChoice === usersChoice) {
-        console.log("right");
+        if (debug) { console.log("answer correct") };
         correctCount++;
         displayCorrect(currentQuestion);
     } else {
-        console.log("wrong");
+        if (debug) { console.log("answer wrong") };
         incorrectCount++;
         displayIncorrect(currentQuestion);
     }
@@ -75,7 +76,7 @@ function checkAnswer() {
 
 // reveal a question
 function startQuestion(currentQuestion) {
-    console.log("function startQuestion");
+    if (debug) { console.log("function startQuestion") };
     displayQuestion(currentQuestion);
     remainingSecs = maxWaitSecs;
     $("#secs").text(remainingSecs);
@@ -94,7 +95,7 @@ function countdown_trigger() {
 }
 
 function displayQuestion(currentQuestion) {
-    console.log("function displayQuestion");
+    if (debug) { console.log("function displayQuestion") };
     $("#scoreboard").addClass("hide");
     $("#outcome").addClass("hide");
     $("#answer").addClass("hide");
@@ -111,7 +112,7 @@ function displayQuestion(currentQuestion) {
 };
 
 function displayCorrect(currentQuestion) {
-    console.log("function displayCorrect");
+    if (debug) { console.log("function displayCorrect") };
     $(".choices").addClass("hide"); //hide questions     
     $("#outcome").text("Correct!");
     $("#outcome").removeClass("hide");
@@ -119,7 +120,7 @@ function displayCorrect(currentQuestion) {
 };
 
 function displayIncorrect(currentQuestion) {
-    console.log("function displayIncorrect");
+    if (debug) { console.log("function displayIncorrect") };
     $(".choices").addClass("hide");
     $("#outcome").text("Nope!")
     $("#outcome").removeClass("hide");
@@ -129,7 +130,7 @@ function displayIncorrect(currentQuestion) {
 };
 
 function displayUnanswered(currentQuestion) {
-    console.log("function displayUnanswered");
+    if (debug) { console.log("function displayUnanswered") };
     $(".choices").addClass("hide");
     $("#outcome").text("Out of Time!");
     $("#outcome").removeClass("hide");
@@ -138,13 +139,14 @@ function displayUnanswered(currentQuestion) {
     setTimeout(nextQuestion, showAnswerTime * 1000);
 };
 
+// show stats and reveal play again? button
 function showStats() {
-    // reveal the go again button
-
+    if (debug) { console.log("function showstats") };
     $("#num-correct").text(correctCount);
     $("#num-incorrect").text(incorrectCount);
     $("#num-unanswered").text(unansweredCount);
     $("#scoreboard").removeClass("hide");
+    $("#go-again").removeClass("hide");
 };
 
 
