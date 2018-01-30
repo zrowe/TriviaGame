@@ -13,7 +13,9 @@ var unansweredCount = 0; // unanswered count
 
 var noAnswerTimer; // holds ID of timer waiting for answer
 var remainingSecs; // remaining maxWaitSecs
-var showAnswerTime = 10; // in seconds
+var showAnswerTime = 3; // in seconds
+
+var qindex; // index of current question in question set.
 
 // Blueprint for a question/answer set
 function QuestionSet(question, choice1, choice2,
@@ -30,27 +32,32 @@ function QuestionSet(question, choice1, choice2,
 var Q1 = new QuestionSet("What is red?", "Blue", "Green", "Yellow", "Red", "Red");
 var Q2 = new QuestionSet("Who is Paul?", "Billy", "Jim", "Paul", "Jack", "Paul");
 var Q3 = new QuestionSet("What is water?", "A liquid", "A solid", "A gas", "An herb", "A liquid");
-var Q4 = new QuestionSet("What is Trump?", "A great president", "An eloquent speaker", "A liberal", "A jerk", );
+var Q4 = new QuestionSet("What is Trump?", "A great president", "An eloquent speaker", "A liberal", "A jerk", "A jerk");
 
 // gather all the Q&A together
 var questions = [Q1, Q2, Q3, Q4];
 
 
-
 function startRound() {
-    currentQuestion = Q1;
+    qindex = 0; // set the start of game
+    currentQuestion = questions[qindex];
     startQuestion(currentQuestion);
 }
 
 function nextQuestion() {
-    currentQuestion = Q2;
-    startQuestion(currentQuestion);	
+    if (qindex < questions.length - 1) {
+        qindex++;
+        currentQuestion = questions[qindex];
+        startQuestion(currentQuestion);
+    } else {
+        showStats() // this never returns. Go-again button will rekick game.
+    }
 }
 
 function checkAnswer() {
     console.log(noAnswerTimer);
     clearInterval(noAnswerTimer);
-        console.log(noAnswerTimer);
+    console.log(noAnswerTimer);
     var usersChoice = this.value;
     if (debug) { console.log(usersChoice) };
     if (currentQuestion.rightChoice === usersChoice) {
@@ -106,7 +113,7 @@ function displayCorrect(currentQuestion) {
     $(".choices").addClass("hide"); //hide questions     
     $("#outcome").text("Correct!");
     $("#outcome").removeClass("hide");
-    setTimeout(nextQuestion,showAnswerTime * 1000);
+    setTimeout(nextQuestion, showAnswerTime * 1000);
 };
 
 function displayIncorrect(currentQuestion) {
@@ -116,7 +123,7 @@ function displayIncorrect(currentQuestion) {
     $("#outcome").removeClass("hide");
     $("#answer-text").text(currentQuestion.rightChoice);
     $("#answer").removeClass("hide");
-    setTimeout(nextQuestion,showAnswerTime * 1000);
+    setTimeout(nextQuestion, showAnswerTime * 1000);
 };
 
 function displayUnanswered(currentQuestion) {
@@ -126,21 +133,24 @@ function displayUnanswered(currentQuestion) {
     $("#outcome").removeClass("hide");
     $("#answer-text").text(currentQuestion.rightChoice);
     $("#answer").removeClass("hide");
-    setTimeout(nextQuestion,showAnswerTime * 1000);
+    setTimeout(nextQuestion, showAnswerTime * 1000);
 };
 // paint title anc container7k
 // paint start a game?
 // when pressed, run a game until no more games.
 // run a game until no more games.
 
+function showStats() {
+    // reveal the go again button
 
-
-function askQuestion(currentQuestion) {
-    var result = "";
-    return result
-}
+    $("#num-correct").text(correctCount);
+    $("#num-incorrect").text(incorrectCount);
+    $("#num-unanswered").text(unansweredCount);
+    $("#scoreboard").removeClass("hide");
+};
 
 
 //  then start another question.
 $(document).on("click", "#start-game", startRound);
 $(document).on("click", ".choices", checkAnswer);
+$(document).on("click", "#go-again", startRound);
