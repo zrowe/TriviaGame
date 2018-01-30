@@ -8,6 +8,7 @@ html {
 body {
     color: black;
     font-size: 36px;
+    font-family: fantasy;
 }
 
 * {
@@ -15,46 +16,32 @@ body {
 }
 
 
-
-
-/*
-h1 {
-    font-size: 36px;
-    margin: 0px 0px;
-}
-
-h2 {
-    font-size: 30px;
-    margin: 20px 0px;
-}
-*/
-
 main {
     max-width: 720px;
     background-color: white;
     margin: auto;
 }
 
-.btn-wrapper {
-  text-align:center;
- 
-}
+
 
 button {
     padding: 20px 80px;
     background-color: inherit;
     font-size: 26px;
     font-weight: bold;
-      margin-left: auto;
-  margin-right: auto;
-  border-style: none;
-
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
 }
 
 button:hover {
     background-color: yellow;
     border: 1px solid black;
-    border-style:solid;
+    border-style: solid;
+}
+
+.btn-wrapper {
+    text-align: center;
 }
 
 .container {
@@ -63,13 +50,48 @@ button:hover {
 }
 
 .debug {
-  /*  border: 1px solid; */
+    /*  border: 1px solid; */
 }
 
 .title {
     width: 100%;
     text-align: center;
     padding: 40px;
+    font-size: 50px;
+}
+
+
+
+#time-remaining,
+#question,
+#outcome,
+#answer,
+#scoreboard {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+#time-remaining {
+
+}
+
+#question {
+
+}
+
+#outcome {
+
+}
+
+#answer {
+
+}
+
+#scoreboard {
+
 }
 
 .hide {
